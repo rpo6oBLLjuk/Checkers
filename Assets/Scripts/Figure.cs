@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Figure : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class Figure : MonoBehaviour
     {
         if (!block)
         {
-            if (figureColor == GlobalManager.This.PlayerColor)
+            if (figureColor == GlobalManager.This.PlayerColor && !EventSystem.current.IsPointerOverGameObject())
             {
                 clickLight.enabled = true;
                 GlobalManager.This.RayObj.SetActive(true);

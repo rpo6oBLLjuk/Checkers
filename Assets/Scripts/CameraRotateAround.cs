@@ -128,8 +128,8 @@ public class CameraRotateAround : MonoBehaviour
     {
         AutoRotate = !AutoRotate;
         if (AutoRotate)
-            buttonImage.color = new Color(0.1605731f, 0.8773585f, 0.1605731f, 0.1960784f);
+            buttonImage.color = new Color(0, 1, 0, 1);
         else
-            buttonImage.color = new Color(0.8784314f, 0.259323f, 0.1607843f, 0.1960784f);
+            buttonImage.color = new Color(.8f, .4f, .5f, 1);
     }
 }

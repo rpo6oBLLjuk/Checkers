@@ -32,6 +32,8 @@ public class GlobalManager : MonoBehaviour
 
     public int targetFrameRate = 60;
 
+    public GameObject pauseMenu;
+
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
@@ -46,6 +48,13 @@ public class GlobalManager : MonoBehaviour
         PlayerColor = 1;
         whiteText.text = "White: " + (whiteCount = whiteFigure.Length).ToString();
         blackText.text = "Black: " + (blackCount = whiteFigure.Length).ToString();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ChangeActivePauseMenu();
+        }
     }
     public void FixedUpdate()
     {
@@ -118,10 +127,6 @@ public class GlobalManager : MonoBehaviour
             }
         }
     }
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
     private void OnDrawGizmos()
     {
         for (int x = 3; x < 11; x++)
@@ -156,5 +161,14 @@ public class GlobalManager : MonoBehaviour
         }
         yield return new WaitForSeconds(3);
         GlobalManager.This.Restart();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void ChangeActivePauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
     }
 }
