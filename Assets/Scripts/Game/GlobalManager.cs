@@ -36,8 +36,8 @@ public class GlobalManager : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        //QualitySettings.vSyncCount = 0;
+        //Application.targetFrameRate = targetFrameRate;
 
         leftX = 0;
         downY = 0;
