@@ -99,12 +99,12 @@ public class Figure : MonoBehaviour
                                 index = (StopPos.z - StartPos.z) / length;
                             for (int i = 1; i < length; i++)
                             {
-                                if (!IsEat)
+                                if (!IsEat || (isCrown && i != length))
                                 {
                                     GameObject save = GlobalManager.This.TakeObject(StartPos + new Vector3(i * x, 0, i * index));
                                     if (save)
                                     {
-                                        if (save.GetComponent<Figure>().figureColor != figureColor)
+                                        if (save.GetComponent<Figure>().figureColor != figureColor && !IsEat)
                                         {
                                             if (!GlobalManager.This.TakeObject(StartPos + new Vector3((i + 1) * x, 0, (i + 1) * index)))
                                             {
@@ -112,15 +112,22 @@ public class Figure : MonoBehaviour
                                                 eated = save;
                                             }
                                             else
+                                            {
                                                 block = true;
+                                                break;
+                                            }
                                         }
                                         else
+                                        {
                                             block = true;
+                                            break;
+                                        }
                                     }
                                 }
-                                else
+                                else if (!isCrown)
                                 {
                                     block = true;
+                                    break;
                                 }
                             }
                             if (!IsEat && !isCrown)
@@ -136,11 +143,11 @@ public class Figure : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = StartPos;
                     block = true;
                 }
                 if (!block)
                 {
+                    Debug.ClearDeveloperConsole();
                     transform.position = StopPos;
                     GlobalManager.This.Board[StartPos.x + 3, StartPos.z + 3] = null;
                     GlobalManager.This.Board[StopPos.x + 3, StopPos.z + 3] = gameObject;
@@ -195,7 +202,6 @@ public class Figure : MonoBehaviour
         bool possible = false;
         List<GameObject> detected = new();
         int yIndex = figureColor;
-        bool checkCount = true; //right & up
         if (isCrown)
         {
             length = Mathf.Min(GlobalManager.rightX - NowPos.x, GlobalManager.upY - NowPos.z);
@@ -209,26 +215,18 @@ public class Figure : MonoBehaviour
                 if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
                     if (!GlobalManager.This.TakeObject(NowPos + new Vector3((i + 1), 0, yIndex * (i + 1))))
                     {
-                        if (checkCount)
-                        {
-                            possible = true;
-                            detected.Add(possibleObject);
-                            checkCount = false;
-                        }
-                        else
-                            break;
+
+                        possible = true;
+                        detected.Add(possibleObject);
+                        break;
                     }
                     else
                         break;
                 else
-                {
-                    checkCount = false;
                     break;
-                }
             }
         }
 
-        checkCount = true;      //left & up
         if (isCrown)
         {
             length = Mathf.Min(NowPos.x, GlobalManager.upY - NowPos.z);
@@ -243,28 +241,17 @@ public class Figure : MonoBehaviour
                 {
                     if (!GlobalManager.This.TakeObject(NowPos + new Vector3(-(i + 1), 0, yIndex * (i + 1))))
                     {
-                        if (checkCount)
-                        {
-                            possible = true;
-                            detected.Add(possibleObject);
-                            checkCount = false;
-                        }
-                        else
-                            break;
-                    }
-                    else
+                        possible = true;
+                        detected.Add(possibleObject);
                         break;
+                    }
                 }
                 else
-                {
-                    checkCount = false;
                     break;
-                }
             }
         }
         if (isCrown)
         {
-            checkCount = true;      //right & down
             length = Mathf.Min(GlobalManager.rightX - NowPos.x, NowPos.z);
             yIndex = -1;
             for (int i = 1; i < length; i++)
@@ -275,26 +262,16 @@ public class Figure : MonoBehaviour
                     if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
                         if (!GlobalManager.This.TakeObject(NowPos + new Vector3((i + 1), 0, yIndex * (i + 1))))
                         {
-                            if (checkCount)
-                            {
-                                possible = true;
-                                detected.Add(possibleObject);
-                                checkCount = false;
-                            }
-                            else
-                                break;
+                            possible = true;
+                            detected.Add(possibleObject);
+                            break;
                         }
                         else
                             break;
                     else
-                    {
-                        checkCount = false;
                         break;
-                    }
                 }
             }
-
-            checkCount = true;      //left & down
             length = Mathf.Min(NowPos.x, NowPos.z);
             yIndex = -1;
             for (int i = 1; i < length; i++)
@@ -306,23 +283,15 @@ public class Figure : MonoBehaviour
                     {
                         if (!GlobalManager.This.TakeObject(NowPos + new Vector3(-(i + 1), 0, yIndex * (i + 1))))
                         {
-                            if (checkCount)
-                            {
-                                possible = true;
-                                detected.Add(possibleObject);
-                                checkCount = false;
-                            }
-                            else
-                                break;
+                            possible = true;
+                            detected.Add(possibleObject);
+                            break;
                         }
                         else
                             break;
                     }
                     else
-                    {
-                        checkCount = false;
                         break;
-                    }
                 }
             }
         }

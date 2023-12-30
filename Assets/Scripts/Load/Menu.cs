@@ -8,8 +8,15 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     public Slider loading;
+    public GameObject MenuObj;
+
+    public bool optionsActive = false;
+    public GameObject optionsObj;
+
     public void PlayButton()
     {
+        MenuObj.SetActive(false);
+        loading.gameObject.SetActive(true);
         StartCoroutine(AsyncLoad());
     }
     private IEnumerator AsyncLoad()
@@ -24,5 +31,11 @@ public class Menu : MonoBehaviour
             }
             yield return null;
         }
+    }
+    public void OptionsButton()
+    {
+        MenuObj.SetActive(optionsActive);
+        optionsActive = !optionsActive;
+        optionsObj.SetActive(optionsActive);
     }
 }
