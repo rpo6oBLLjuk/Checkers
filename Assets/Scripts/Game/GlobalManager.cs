@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GlobalManager : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class GlobalManager : MonoBehaviour
     public CameraRotateAround camScript;
 
     [Header("Time to Spawn")]
-    public TextMeshProUGUI NowColor;
-    public TextMeshProUGUI whiteText;
-    public TextMeshProUGUI blackText;
-    public TextMeshProUGUI Winner;
+    [SerializeField] private TextMeshProUGUI NowColor;
+    [SerializeField] private TextMeshProUGUI whiteText;
+    [SerializeField] private TextMeshProUGUI blackText;
+    [SerializeField] private TextMeshProUGUI Winner;
 
     [Header("Borders")]
     public static int leftX;
@@ -34,13 +35,13 @@ public class GlobalManager : MonoBehaviour
     public GameObject RayObj;
     public GameObject pauseMenu;
 
-    public GameObject vignette;
+    [SerializeField] private GameObject vignette;
 
     public GameObject[,] Board = new GameObject[13, 13];
 
     [Header("Figure Count")]
-    public int whiteCount;
-    public int blackCount;
+    [SerializeField] private int whiteCount;
+    [SerializeField] private int blackCount;
 
     public static UnityEvent<GameObject[]> PossibleTrue = new();
     public static UnityEvent BlockFalse = new();
@@ -49,13 +50,16 @@ public class GlobalManager : MonoBehaviour
     public static GlobalManager This;
 
     [Header("Time to Spawn")]
-    public int speedSpawn;
-    public float speedVignette;
-    public float startTime;
+    [SerializeField] private int speedSpawn;
+    [SerializeField] private float speedVignette;
+    private float startTime;    //[0,speedSpaw]
 
     [Header("Vignette Clamp")]
-    public float minScale;
-    public float maxScale;
+    [SerializeField] private float minScale;
+    [SerializeField] private float maxScale;
+
+    [SerializeField] private Slider deltaTimeSlider;
+
     private void Start()
     {
         //QualitySettings.vSyncCount = 0;
@@ -76,6 +80,7 @@ public class GlobalManager : MonoBehaviour
     }
     private void Update()
     {
+        Time.timeScale = deltaTimeSlider.value;
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             ChangeActivePauseMenu();
