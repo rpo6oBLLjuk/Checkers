@@ -1,9 +1,13 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraRotateAround : MonoBehaviour
 {
+    //Data
+    [SerializeField] private GameData gameData;
+
     //Rotate Around Desk
     public int speed;
     public bool AutoRotate;
@@ -12,6 +16,7 @@ public class CameraRotateAround : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI sliderValue;
     public TextMeshProUGUI fps;
+
     //Rotate of Input Mouse
     public Transform target;
     public Vector3 offset;
@@ -25,61 +30,69 @@ public class CameraRotateAround : MonoBehaviour
     public float X, Y;
     private bool stop = true;
 
+    [SerializeField] private GameObject canvas;
+
     void Start()
     {
+        speed = gameData.cameraSpeed;
+        slider.value = gameData.cameraSliderValue;
         Y = 45;
         transform.localEulerAngles = new Vector3(Y, 0, 0);
         offset.z = -10;
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            canvas.SetActive(!canvas.activeInHierarchy);
+        }
         fps.text = "FPS: " + Mathf.Round(1 / Time.deltaTime).ToString();
         if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoomSpeed;
         else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoomSpeed;
         offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
-        if (slider.value != slider.maxValue)
+
+        if (slider.value == slider.maxValue)
         {
-            sliderValue.text = "Rotate Speed: " + slider.value.ToString();
-            speed = (int)slider.value;
-            if (!stop)
-            {
-                if (Rotate)
-                    save += Time.deltaTime * speed / 5;
-                else
-                    save -= Time.deltaTime * speed / 5;
-                if (save > 180)
-                {
-                    save = 180;
-                    stop = true;
-                }
-                else if (save < 0)
-                {
-                    save = 0;
-                    stop = true;
-                }
-                if (Input.GetMouseButton(1))
-                    stop = true;
-                rotateAngle = save;
-            }
+            sliderValue.text = "Instantly";
+            speed = 1000000;
+            gameData.cameraSliderValue = (int)slider.maxValue;
         }
         else
         {
-            sliderValue.text = "Instantly";
+            sliderValue.text = "Rotate Speed: " + slider.value.ToString();
+            speed = (int)slider.value;
+            gameData.cameraSliderValue = (int)slider.value;
+        }
+        gameData.cameraSpeed = speed;
+        if (!stop)
+        {
             if (Rotate)
+                save += Time.deltaTime * speed / 5;
+            else
+                save -= Time.deltaTime * speed / 5;
+            if (save > 180)
             {
                 save = 180;
+                stop = true;
             }
-            else
+            else if (save < 0)
+            {
                 save = 0;
+                stop = true;
+            }
+            if (Input.GetMouseButton(1))
+                stop = true;
             rotateAngle = save;
         }
+        
+
         //Mouse Rotate
         if (Input.GetMouseButton(1))
         {
             rotateAngle = 0;
             UpdateRotation();
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(gameData.GetButton("CameraDefault").keyCode))
         {
             if (!Rotate)
             {
@@ -128,8 +141,8 @@ public class CameraRotateAround : MonoBehaviour
     {
         AutoRotate = !AutoRotate;
         if (AutoRotate)
-            buttonImage.color = new Color(0, 1, 0, 1);
+            buttonImage.color = new Color(.5f, .5f, .5f, 1);
         else
-            buttonImage.color = new Color(.8f, .4f, .5f, 1);
+            buttonImage.color = new Color(.7f, .7f, .7f, .1f);
     }
 }

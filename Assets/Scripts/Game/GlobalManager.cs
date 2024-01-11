@@ -33,7 +33,6 @@ public class GlobalManager : MonoBehaviour
     [Header("Support Objects & Components")]
     public GameObject CameraMain;
     public GameObject RayObj;
-    public GameObject pauseMenu;
 
     [SerializeField] private GameObject vignette;
 
@@ -50,7 +49,7 @@ public class GlobalManager : MonoBehaviour
     public static GlobalManager This;
 
     [Header("Time to Spawn")]
-    [SerializeField] private int speedSpawn;
+    [SerializeField] private int movementSpeed;
     [SerializeField] private float speedVignette;
     private float startTime;    //[0,speedSpaw]
 
@@ -58,14 +57,16 @@ public class GlobalManager : MonoBehaviour
     [SerializeField] private float minScale;
     [SerializeField] private float maxScale;
 
-    [SerializeField] private Slider deltaTimeSlider;
+    [Header("Data")]
+    public GameData gameData;
+
+    private bool isBinding;
+    private string nameForBind;
 
     private void Start()
     {
         //QualitySettings.vSyncCount = 0;
         //Application.targetFrameRate = targetFrameRate;
-
-        GL.wireframe = true;
 
         leftX = 0;
         downY = 0;
@@ -78,14 +79,7 @@ public class GlobalManager : MonoBehaviour
         blackText.text = "Black: " + (blackCount = whiteFigure.Length).ToString();
         StartCoroutine(StartGame());
     }
-    private void Update()
-    {
-        Time.timeScale = deltaTimeSlider.value;
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            ChangeActivePauseMenu();
-        }
-    }
+
     public void ChangeColor()
     {
         camScript.Rotation(true);
@@ -149,22 +143,9 @@ public class GlobalManager : MonoBehaviour
             Winner.text = "Draw";
         }
         yield return new WaitForSeconds(3);
-        GlobalManager.This.Restart();
+        AnotherMethods.Restart();
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void ChangeActivePauseMenu()
-    {
-        pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
-    }
-
-    public void Exit()
-    {
-        SceneManager.LoadScene("LoadScene");
-    }
     public IEnumerator StartGame()
     {
         bool TF = true;
@@ -177,21 +158,21 @@ public class GlobalManager : MonoBehaviour
                 TF = false;
             yield return null;
         }
-        while (5 > startTime)
+        while (1 > startTime)
         {
             int number = 0;
             foreach (GameObject go in whiteFigure)
             {
-                go.transform.position = Vector3.Lerp(go.transform.position, WhitePoints[number].position, Time.deltaTime * speedSpawn);
+                go.transform.position = Vector3.Lerp(go.transform.position, WhitePoints[number].position, startTime);
                 number += 1;
             }
             number = 0;
             foreach (GameObject go in blackFigure)
             {
-                go.transform.position = Vector3.Lerp(go.transform.position, BlackPoints[number].position, Time.deltaTime * speedSpawn);
+                go.transform.position = Vector3.Lerp(go.transform.position, BlackPoints[number].position, startTime);
                 number += 1;
             }
-            startTime += Time.deltaTime * speedSpawn;
+            startTime += Time.deltaTime * movementSpeed;
             yield return null;
         }
         int i = 0;
@@ -212,5 +193,27 @@ public class GlobalManager : MonoBehaviour
             component.StopPos = component.StartPos = new Vector3Int(Mathf.RoundToInt(go.transform.position.x), 0, Mathf.RoundToInt(go.transform.position.z));
             Board[component.StopPos.x + 3, component.StopPos.z + 3] = go;
         }
+    }
+
+    public void BindButton(string name)
+    {
+        GameData.NewButton button = gameData.GetButton(name);
+        button.buttonText.text = "Input";
+        nameForBind = button.shortName;
+        isBinding = true;
+    }
+    private void OnGUI()
+    {
+        if (isBinding)
+        {
+            Event eventCopy = Event.current;
+            if (eventCopy.isKey)
+            {
+                isBinding = false;
+                Debug.Log(nameForBind);
+                gameData.ChangeKeys(nameForBind, eventCopy.keyCode);
+            }
+        }
+
     }
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87828b776d43e9c4183d35b905a584ef, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  options:
+  - shortName: Music
+    value: 0
+    rTransform: {fileID: 0}
+  - shortName: AlwaysEat
+    value: 0
+    rTransform: {fileID: 0}
+  - shortName: ContinueCrownEat
+    value: 0
+    rTransform: {fileID: 0}
+  buttons:
+  - shortName: CameraDefault
+    keyCode: 114
+    buttonText: {fileID: 0}
+  - shortName: Pause
+    keyCode: 112
+    buttonText: {fileID: 0}
+  deskColor: {r: 0, g: 0, b: 0, a: 0}
+  whiteFigureColor: {r: 0, g: 0, b: 0, a: 0}
+  blackFigureColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraSpeed: 1000000
+  cameraSliderValue: 1001

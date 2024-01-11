@@ -7,7 +7,7 @@ public class Figure : MonoBehaviour
     [Range(1, 20)] public float speed;
 
     public Vector3Int StartPos, StopPos;
-    public Light clickLight, detectLight, eaterLight;
+    public GameObject clickLight, detectLight, eaterLight, crownLight;
     public bool isCrown, block, onlyEat;
     public int figureColor;
     public Transform cam;
@@ -25,16 +25,11 @@ public class Figure : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cam.eulerAngles.y + 180, transform.eulerAngles.z);
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isCrown = !isCrown;
-            transform.rotation = Quaternion.Euler(transform.eulerAngles.x - 180, transform.eulerAngles.y, transform.eulerAngles.z);
-            foreach (Transform go in transform.GetComponentsInChildren<Transform>())
-            {
-                if (go != gameObject.transform)
-                    go.localPosition = new Vector3(go.localPosition.x, go.localPosition.y, -go.localPosition.z);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    isCrown = !isCrown;
+        //    crownLight.SetActive(!crownLight.activeInHierarchy);
+        //}
         if (IsClick)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -43,10 +38,15 @@ public class Figure : MonoBehaviour
             {
                 if (hit.collider.gameObject != this.gameObject)
                 {
-                    Vector3 NowPos = new(Mathf.RoundToInt(transform.position.x), -0.075f, Mathf.RoundToInt(transform.position.z));
                     transform.position = Vector3.Lerp(transform.position, new Vector3(hit.point.x, 0.5f, hit.point.z), Time.deltaTime * speed);
-                    if (NowPos.x >= GlobalManager.leftX && NowPos.x <= GlobalManager.rightX && NowPos.z >= GlobalManager.downY && NowPos.z <= GlobalManager.upY)
-                        GlobalManager.This.RayObj.transform.position = NowPos;
+
+                    if (CheckPosition(new Vector3Int(Mathf.RoundToInt(transform.position.x), 0, Mathf.RoundToInt(transform.position.z)), true))
+                    {
+                        Transform rayTransofrm = GlobalManager.This.RayObj.transform;
+                        float y = rayTransofrm.position.y;
+                        rayTransofrm.position = MathF_Position(transform.position);
+                        rayTransofrm.position += new Vector3(0, y, 0);
+                    }
                 }
             }
         }
@@ -57,7 +57,7 @@ public class Figure : MonoBehaviour
         {
             if (figureColor == GlobalManager.This.PlayerColor && !EventSystem.current.IsPointerOverGameObject())
             {
-                clickLight.enabled = true;
+                clickLight.SetActive(true);
                 GlobalManager.This.RayObj.SetActive(true);
                 StartPos = new Vector3Int(Mathf.RoundToInt(transform.position.x), 0, Mathf.RoundToInt(transform.position.z));
                 IsClick = true;
@@ -67,16 +67,16 @@ public class Figure : MonoBehaviour
     private void OnMouseUp()
     {
         GlobalManager.This.RayObj.SetActive(false);
-        clickLight.enabled = false;
-        StopPos = new Vector3Int(Mathf.RoundToInt(transform.position.x), 0, Mathf.RoundToInt(transform.position.z));
+        clickLight.SetActive(false);
+        StopPos = MathF_Position(transform.position);
+        StopPos.y = 0;
         if (IsClick)
         {
-            if (GlobalManager.leftX <= StopPos.x & GlobalManager.rightX >= StopPos.x & GlobalManager.upY >= StopPos.z & GlobalManager.downY <= StopPos.z)
+            if (CheckPosition(StopPos, true))
             {
                 bool block = false;
                 bool IsEat = false;
                 GameObject eated = null;
-                StopPos = new Vector3Int(Mathf.RoundToInt(transform.position.x), 0, Mathf.RoundToInt(transform.position.z));
                 int length = Mathf.RoundToInt(Mathf.Abs(StopPos.z - StartPos.z));
                 if (length == 1 && onlyEat)
                     block = true;
@@ -104,7 +104,7 @@ public class Figure : MonoBehaviour
                                     GameObject save = GlobalManager.This.TakeObject(StartPos + new Vector3(i * x, 0, i * index));
                                     if (save)
                                     {
-                                        if (save.GetComponent<Figure>().figureColor != figureColor && !IsEat)
+                                        if (save.tag != this.tag && !IsEat)
                                         {
                                             if (!GlobalManager.This.TakeObject(StartPos + new Vector3((i + 1) * x, 0, (i + 1) * index)))
                                             {
@@ -147,7 +147,11 @@ public class Figure : MonoBehaviour
                 }
                 if (!block)
                 {
-                    Debug.ClearDeveloperConsole();
+                    if (GlobalManager.This.gameData.GetOption("ContinueCrownEat").value)
+                        if (this.CompareTag("Black") && StopPos.z == GlobalManager.downY && !isCrown)
+                            Crowning();
+                        else if (this.CompareTag("White") && StopPos.z == GlobalManager.upY && !isCrown)
+                            Crowning();
                     transform.position = StopPos;
                     GlobalManager.This.Board[StartPos.x + 3, StartPos.z + 3] = null;
                     GlobalManager.This.Board[StopPos.x + 3, StopPos.z + 3] = gameObject;
@@ -181,10 +185,11 @@ public class Figure : MonoBehaviour
                     {
                         GlobalManager.This.ChangeColor();
                     }
-                    if (figureColor == -1 && StopPos.z == GlobalManager.downY && !isCrown)
-                        Crowning();
-                    else if (figureColor == 1 && StopPos.z == GlobalManager.upY && !isCrown)
-                        Crowning();
+                    if (!GlobalManager.This.gameData.GetOption("ContinueCrownEat").value)
+                        if (this.CompareTag("Black") && StopPos.z == GlobalManager.downY && !isCrown)
+                            Crowning();
+                        else if (this.CompareTag("White") && StopPos.z == GlobalManager.upY && !isCrown)
+                            Crowning();
                 }
                 else
                 {
@@ -210,9 +215,9 @@ public class Figure : MonoBehaviour
         for (int i = 1; i < length; i++)
         {
             GameObject possibleObject = GlobalManager.This.TakeObject(NowPos + new Vector3(i, 0, yIndex * i));
-            if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos))
+            if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos, false))
             {
-                if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
+                if (!possibleObject.CompareTag(this.tag))
                     if (!GlobalManager.This.TakeObject(NowPos + new Vector3((i + 1), 0, yIndex * (i + 1))))
                     {
 
@@ -235,9 +240,9 @@ public class Figure : MonoBehaviour
         for (int i = 1; i < length; i++)
         {
             GameObject possibleObject = GlobalManager.This.TakeObject(NowPos + new Vector3(-i, 0, yIndex * i));
-            if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos))
+            if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos, false))
             {
-                if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
+                if (!possibleObject.CompareTag(this.tag))
                 {
                     if (!GlobalManager.This.TakeObject(NowPos + new Vector3(-(i + 1), 0, yIndex * (i + 1))))
                     {
@@ -257,9 +262,9 @@ public class Figure : MonoBehaviour
             for (int i = 1; i < length; i++)
             {
                 GameObject possibleObject = GlobalManager.This.TakeObject(NowPos + new Vector3(i, 0, yIndex * i));
-                if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos))
+                if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos, false))
                 {
-                    if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
+                    if (!possibleObject.CompareTag(this.tag))
                         if (!GlobalManager.This.TakeObject(NowPos + new Vector3((i + 1), 0, yIndex * (i + 1))))
                         {
                             possible = true;
@@ -277,9 +282,9 @@ public class Figure : MonoBehaviour
             for (int i = 1; i < length; i++)
             {
                 GameObject possibleObject = GlobalManager.This.TakeObject(NowPos + new Vector3(-i, 0, yIndex * i));
-                if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos))
+                if (possibleObject && CheckPosition(possibleObject.GetComponent<Figure>().StopPos, false))
                 {
-                    if (possibleObject.GetComponent<Figure>().figureColor != figureColor)
+                    if (!possibleObject.CompareTag(this.tag))
                     {
                         if (!GlobalManager.This.TakeObject(NowPos + new Vector3(-(i + 1), 0, yIndex * (i + 1))))
                         {
@@ -299,14 +304,14 @@ public class Figure : MonoBehaviour
         if (possible)
         {
             GlobalManager.PossibleTrue.Invoke(detected.ToArray());
-            eaterLight.enabled = true;
+            eaterLight.SetActive(true);
             onlyEat = true;
             block = false;
             return true;
         }
         else if (!autoCheck)
         {
-            eaterLight.enabled = false;
+            eaterLight.SetActive(false);
             onlyEat = false;
             GlobalManager.BlockFalse.Invoke();
             GlobalManager.OffLight.Invoke();
@@ -314,29 +319,98 @@ public class Figure : MonoBehaviour
         else
         {
             onlyEat = false;
-            eaterLight.enabled = false;
+            eaterLight.SetActive(false);
         }
         return false;
     }
     private void Crowning()
     {
         isCrown = !isCrown;
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x - 180, transform.eulerAngles.y, transform.eulerAngles.z);
-        foreach (Transform go in transform.GetComponentsInChildren<Transform>())
+        crownLight.SetActive(true);
+    }
+
+    //Supportive functions of the position
+    private bool CheckPosition(Vector3Int NowPos, bool equal)   //проверка нахождения внутри поля, включая/исключая края (equal)
+    {
+        if (!equal)
+            if (NowPos.x > GlobalManager.leftX && NowPos.x < GlobalManager.rightX && NowPos.z < GlobalManager.upY && NowPos.z > GlobalManager.downY)
+            {
+                return true;
+            }
+            else
+                return false;
+        else
         {
-            if (go != gameObject.transform)
-                go.localPosition = new Vector3(go.localPosition.x, go.localPosition.y, -go.localPosition.z);
+            if (NowPos.x >= GlobalManager.leftX && NowPos.x <= GlobalManager.rightX && NowPos.z <= GlobalManager.upY && NowPos.z >= GlobalManager.downY)
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
-    private bool CheckPosition(Vector3Int NowPos)
+
+    private Vector3Int MathF_Position(Vector3 pos)    //вычисление позиции исключительно чёрных клеток
     {
-        if (NowPos.x > GlobalManager.leftX && NowPos.x < GlobalManager.rightX && NowPos.z < GlobalManager.upY && NowPos.z > GlobalManager.downY)
+        Vector3Int res = Vector3Int.zero;
+        Vector3 defPosition = pos;
+        float x = defPosition.x;
+        float z = defPosition.z;
+        int xi = Mathf.RoundToInt(x);
+        int zi = Mathf.RoundToInt(z);
+        if ((xi + zi) % 2 == 1)
         {
-            return true;
+            float xLength = x - xi;
+            float zLength = z - zi;
+            //Debug.Log("x: " + x + ", z: " + z + ", xi: " + xi + ", zi: " + zi + "\n" + "xLength: " + xLength + "zLength: " + zLength);
+            //Debug.Log("xLength: " + xLength + "zLength: " + zLength);
+            if (Mathf.Abs(xLength) > Mathf.Abs(zLength))
+            {
+                if ((xi == GlobalManager.leftX && xLength < 0) || (xi == GlobalManager.rightX && xLength > 0))
+                {
+                    res.x = xi;
+                    res.z = zi + Math_Help(zLength);
+                }
+                else
+                {
+                    res.z = zi;
+                    res.x = xi + Math_Help(xLength);
+                }
+
+            }
+            else
+            {
+                if ((zi == GlobalManager.downY && zLength < 0) || (zi == GlobalManager.upY && zLength > 0))
+                {
+                    res.z = zi;
+                    res.x = xi + Math_Help(xLength);
+                }
+                else
+
+                {
+                    res.x = xi;
+                    res.z = zi + Math_Help(zLength);
+                }
+
+            }
+            res.y = Mathf.RoundToInt(defPosition.y);
         }
         else
-            return false;
+        {
+            res = new Vector3Int(xi, Mathf.RoundToInt(defPosition.y), zi);
+        }
+
+        //support function
+        int Math_Help(float length)
+        {
+            if (length > 0)
+                return 1;
+            else
+                return -1;
+        }
+        return res;
     }
+
     //Four Listener
     private void IsPossibleTrue(GameObject[] figure)
     {
@@ -346,7 +420,7 @@ public class Figure : MonoBehaviour
         {
             if (go == gameObject)
             {
-                detectLight.enabled = true;
+                detectLight.SetActive(true);
             }
         }
     }
@@ -361,7 +435,7 @@ public class Figure : MonoBehaviour
     }
     private void OffLightListener()
     {
-        detectLight.enabled = false;
-        eaterLight.enabled = false;
+        detectLight.SetActive(false);
+        eaterLight.SetActive(false);
     }
 }

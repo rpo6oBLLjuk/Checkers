@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 4.0.2 commit date:2023-12-05, commit time:07:41, hash:9be62e85b727</authoring_tool>
+    </contributor>
+    <created>2024-01-11T22:02:13</created>
+    <modified>2024-01-11T22:02:13</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_geometries>
+    <geometry id="Circle_007-mesh" name="Circle.007">
+      <mesh>
+        <source id="Circle_007-mesh-positions">
+          <float_array id="Circle_007-mesh-positions-array" count="60">-0.4217852 -0.5782148 -0.09999996 -0.2266948 -0.5590001 -0.09999996 -0.03910171 -0.5020943 -0.09999996 0.133785 -0.4096844 -0.09999996 0.2853216 -0.2853216 -0.09999996 0.4096844 -0.133785 -0.09999996 0.5020943 0.03910171 -0.09999996 0.5590001 0.2266948 -0.09999996 0.5782148 0.4217852 -0.09999996 -0.4217852 0.4217852 -0.09999996 0.5782148 0.4217852 0.1 0.5590001 0.2266948 0.1 0.5020943 0.03910171 0.1 0.4096844 -0.133785 0.1 0.2853216 -0.2853216 0.1 0.133785 -0.4096844 0.1 -0.03910171 -0.5020943 0.1 -0.2266948 -0.5590001 0.1 -0.4217852 -0.5782148 0.1 -0.4217852 0.4217852 0.1</float_array>
+          <technique_common>
+            <accessor source="#Circle_007-mesh-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_007-mesh-normals">
+          <float_array id="Circle_007-mesh-normals-array" count="108">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0.7071068 -0.7071068 0 0.5555702 -0.8314697 0 0.5555703 -0.8314696 0 0.8314697 -0.5555701 0 0.7071068 -0.7071068 0 0.9238796 -0.3826833 0 0.8314697 -0.5555703 0 0.9807853 -0.1950904 0 0.9238795 -0.3826835 0 0.9951847 -0.09801727 0 0.9807853 -0.1950904 0 0.1950904 -0.9807853 0 0.09801727 -0.9951847 0 0.09801727 -0.9951847 0 0.3826835 -0.9238796 0 0.1950903 -0.9807853 0 0.3826834 -0.9238796 0 0 1 0 -1 0 0 0.9951848 -0.09801727 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_007-mesh-normals-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_007-mesh-map-0">
+          <float_array id="Circle_007-mesh-map-0-array" count="216">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_007-mesh-map-0-array" count="108" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Circle_007-mesh-vertices">
+          <input semantic="POSITION" source="#Circle_007-mesh-positions"/>
+        </vertices>
+        <triangles count="36">
+          <input semantic="VERTEX" source="#Circle_007-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Circle_007-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Circle_007-mesh-map-0" offset="2" set="0"/>
+          <p>9 0 0 1 1 1 0 2 2 9 0 3 2 3 4 1 1 5 9 0 6 3 4 7 2 3 8 9 0 9 4 5 10 3 4 11 9 0 12 5 6 13 4 5 14 9 0 15 6 7 16 5 6 17 9 0 18 7 7 19 6 7 20 9 0 21 8 7 22 7 7 23 19 8 24 11 9 25 10 9 26 19 8 27 12 9 28 11 9 29 19 8 30 13 10 31 12 9 32 19 8 33 14 11 34 13 10 35 19 8 36 15 12 37 14 11 38 19 8 39 16 13 40 15 12 41 19 8 42 17 14 43 16 13 44 19 8 45 18 15 46 17 14 47 4 16 48 15 17 49 3 18 50 5 19 51 14 20 52 4 16 53 6 21 54 13 22 55 5 19 56 7 23 57 12 24 58 6 21 59 8 25 60 11 26 61 7 23 62 1 27 63 18 28 64 0 29 65 2 30 66 17 31 67 1 27 68 3 18 69 16 32 70 2 30 71 9 33 72 10 33 73 8 33 74 18 34 75 9 34 76 0 34 77 4 16 78 14 20 79 15 17 80 5 19 81 13 22 82 14 20 83 6 21 84 12 24 85 13 22 86 7 23 87 11 26 88 12 24 89 8 25 90 10 35 91 11 26 92 1 27 93 17 31 94 18 28 95 2 30 96 16 32 97 17 31 98 3 18 99 15 17 100 16 32 101 9 33 102 19 33 103 10 33 104 18 34 105 19 34 106 9 34 107</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Circle_006-mesh" name="Circle.006">
+      <mesh>
+        <source id="Circle_006-mesh-positions">
+          <float_array id="Circle_006-mesh-positions-array" count="60">-0.4217852 -0.5782148 -0.09999996 -0.2266948 -0.5590001 -0.09999996 -0.03910171 -0.5020943 -0.09999996 0.133785 -0.4096844 -0.09999996 0.2853216 -0.2853216 -0.09999996 0.4096844 -0.133785 -0.09999996 0.5020943 0.03910171 -0.09999996 0.5590001 0.2266948 -0.09999996 0.5782148 0.4217852 -0.09999996 -0.4217852 0.4217852 -0.09999996 0.5782148 0.4217852 0.1 0.5590001 0.2266948 0.1 0.5020943 0.03910171 0.1 0.4096844 -0.133785 0.1 0.2853216 -0.2853216 0.1 0.133785 -0.4096844 0.1 -0.03910171 -0.5020943 0.1 -0.2266948 -0.5590001 0.1 -0.4217852 -0.5782148 0.1 -0.4217852 0.4217852 0.1</float_array>
+          <technique_common>
+            <accessor source="#Circle_006-mesh-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_006-mesh-normals">
+          <float_array id="Circle_006-mesh-normals-array" count="108">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0.7071068 -0.7071068 0 0.5555702 -0.8314697 0 0.5555703 -0.8314696 0 0.8314697 -0.5555701 0 0.7071068 -0.7071068 0 0.9238796 -0.3826833 0 0.8314697 -0.5555703 0 0.9807853 -0.1950904 0 0.9238795 -0.3826835 0 0.9951847 -0.09801727 0 0.9807853 -0.1950904 0 0.1950904 -0.9807853 0 0.09801727 -0.9951847 0 0.09801727 -0.9951847 0 0.3826835 -0.9238796 0 0.1950903 -0.9807853 0 0.3826834 -0.9238796 0 0 1 0 -1 0 0 0.9951848 -0.09801727 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_006-mesh-normals-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_006-mesh-map-0">
+          <float_array id="Circle_006-mesh-map-0-array" count="216">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_006-mesh-map-0-array" count="108" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Circle_006-mesh-vertices">
+          <input semantic="POSITION" source="#Circle_006-mesh-positions"/>
+        </vertices>
+        <triangles count="36">
+          <input semantic="VERTEX" source="#Circle_006-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Circle_006-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Circle_006-mesh-map-0" offset="2" set="0"/>
+          <p>9 0 0 1 1 1 0 2 2 9 0 3 2 3 4 1 1 5 9 0 6 3 4 7 2 3 8 9 0 9 4 5 10 3 4 11 9 0 12 5 6 13 4 5 14 9 0 15 6 7 16 5 6 17 9 0 18 7 7 19 6 7 20 9 0 21 8 7 22 7 7 23 19 8 24 11 9 25 10 9 26 19 8 27 12 9 28 11 9 29 19 8 30 13 10 31 12 9 32 19 8 33 14 11 34 13 10 35 19 8 36 15 12 37 14 11 38 19 8 39 16 13 40 15 12 41 19 8 42 17 14 43 16 13 44 19 8 45 18 15 46 17 14 47 4 16 48 15 17 49 3 18 50 5 19 51 14 20 52 4 16 53 6 21 54 13 22 55 5 19 56 7 23 57 12 24 58 6 21 59 8 25 60 11 26 61 7 23 62 1 27 63 18 28 64 0 29 65 2 30 66 17 31 67 1 27 68 3 18 69 16 32 70 2 30 71 9 33 72 10 33 73 8 33 74 18 34 75 9 34 76 0 34 77 4 16 78 14 20 79 15 17 80 5 19 81 13 22 82 14 20 83 6 21 84 12 24 85 13 22 86 7 23 87 11 26 88 12 24 89 8 25 90 10 35 91 11 26 92 1 27 93 17 31 94 18 28 95 2 30 96 16 32 97 17 31 98 3 18 99 15 17 100 16 32 101 9 33 102 19 33 103 10 33 104 18 34 105 19 34 106 9 34 107</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Circle_005-mesh" name="Circle.005">
+      <mesh>
+        <source id="Circle_005-mesh-positions">
+          <float_array id="Circle_005-mesh-positions-array" count="60">-0.4217852 -0.5782148 -0.09999996 -0.2266948 -0.5590001 -0.09999996 -0.03910171 -0.5020943 -0.09999996 0.133785 -0.4096844 -0.09999996 0.2853216 -0.2853216 -0.09999996 0.4096844 -0.133785 -0.09999996 0.5020943 0.03910171 -0.09999996 0.5590001 0.2266948 -0.09999996 0.5782148 0.4217852 -0.09999996 -0.4217852 0.4217852 -0.09999996 0.5782148 0.4217852 0.1 0.5590001 0.2266948 0.1 0.5020943 0.03910171 0.1 0.4096844 -0.133785 0.1 0.2853216 -0.2853216 0.1 0.133785 -0.4096844 0.1 -0.03910171 -0.5020943 0.1 -0.2266948 -0.5590001 0.1 -0.4217852 -0.5782148 0.1 -0.4217852 0.4217852 0.1</float_array>
+          <technique_common>
+            <accessor source="#Circle_005-mesh-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_005-mesh-normals">
+          <float_array id="Circle_005-mesh-normals-array" count="108">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0.7071068 -0.7071068 0 0.5555702 -0.8314697 0 0.5555703 -0.8314696 0 0.8314697 -0.5555701 0 0.7071068 -0.7071068 0 0.9238796 -0.3826833 0 0.8314697 -0.5555703 0 0.9807853 -0.1950904 0 0.9238795 -0.3826835 0 0.9951847 -0.09801727 0 0.9807853 -0.1950904 0 0.1950904 -0.9807853 0 0.09801727 -0.9951847 0 0.09801727 -0.9951847 0 0.3826835 -0.9238796 0 0.1950903 -0.9807853 0 0.3826834 -0.9238796 0 0 1 0 -1 0 0 0.9951848 -0.09801727 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_005-mesh-normals-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_005-mesh-map-0">
+          <float_array id="Circle_005-mesh-map-0-array" count="216">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_005-mesh-map-0-array" count="108" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Circle_005-mesh-vertices">
+          <input semantic="POSITION" source="#Circle_005-mesh-positions"/>
+        </vertices>
+        <triangles count="36">
+          <input semantic="VERTEX" source="#Circle_005-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Circle_005-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Circle_005-mesh-map-0" offset="2" set="0"/>
+          <p>9 0 0 1 1 1 0 2 2 9 0 3 2 3 4 1 1 5 9 0 6 3 4 7 2 3 8 9 0 9 4 5 10 3 4 11 9 0 12 5 6 13 4 5 14 9 0 15 6 7 16 5 6 17 9 0 18 7 7 19 6 7 20 9 0 21 8 7 22 7 7 23 19 8 24 11 9 25 10 9 26 19 8 27 12 9 28 11 9 29 19 8 30 13 10 31 12 9 32 19 8 33 14 11 34 13 10 35 19 8 36 15 12 37 14 11 38 19 8 39 16 13 40 15 12 41 19 8 42 17 14 43 16 13 44 19 8 45 18 15 46 17 14 47 4 16 48 15 17 49 3 18 50 5 19 51 14 20 52 4 16 53 6 21 54 13 22 55 5 19 56 7 23 57 12 24 58 6 21 59 8 25 60 11 26 61 7 23 62 1 27 63 18 28 64 0 29 65 2 30 66 17 31 67 1 27 68 3 18 69 16 32 70 2 30 71 9 33 72 10 33 73 8 33 74 18 34 75 9 34 76 0 34 77 4 16 78 14 20 79 15 17 80 5 19 81 13 22 82 14 20 83 6 21 84 12 24 85 13 22 86 7 23 87 11 26 88 12 24 89 8 25 90 10 35 91 11 26 92 1 27 93 17 31 94 18 28 95 2 30 96 16 32 97 17 31 98 3 18 99 15 17 100 16 32 101 9 33 102 19 33 103 10 33 104 18 34 105 19 34 106 9 34 107</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Circle_004-mesh" name="Circle.004">
+      <mesh>
+        <source id="Circle_004-mesh-positions">
+          <float_array id="Circle_004-mesh-positions-array" count="60">-0.4217852 -0.5782148 -0.09999996 -0.2266948 -0.5590001 -0.09999996 -0.03910171 -0.5020943 -0.09999996 0.133785 -0.4096844 -0.09999996 0.2853216 -0.2853216 -0.09999996 0.4096844 -0.133785 -0.09999996 0.5020943 0.03910171 -0.09999996 0.5590001 0.2266948 -0.09999996 0.5782148 0.4217852 -0.09999996 -0.4217852 0.4217852 -0.09999996 0.5782148 0.4217852 0.1 0.5590001 0.2266948 0.1 0.5020943 0.03910171 0.1 0.4096844 -0.133785 0.1 0.2853216 -0.2853216 0.1 0.133785 -0.4096844 0.1 -0.03910171 -0.5020943 0.1 -0.2266948 -0.5590001 0.1 -0.4217852 -0.5782148 0.1 -0.4217852 0.4217852 0.1</float_array>
+          <technique_common>
+            <accessor source="#Circle_004-mesh-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_004-mesh-normals">
+          <float_array id="Circle_004-mesh-normals-array" count="108">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0.7071068 -0.7071068 0 0.5555702 -0.8314697 0 0.5555703 -0.8314696 0 0.8314697 -0.5555701 0 0.7071068 -0.7071068 0 0.9238796 -0.3826833 0 0.8314697 -0.5555703 0 0.9807853 -0.1950904 0 0.9238795 -0.3826835 0 0.9951847 -0.09801727 0 0.9807853 -0.1950904 0 0.1950904 -0.9807853 0 0.09801727 -0.9951847 0 0.09801727 -0.9951847 0 0.3826835 -0.9238796 0 0.1950903 -0.9807853 0 0.3826834 -0.9238796 0 0 1 0 -1 0 0 0.9951848 -0.09801727 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_004-mesh-normals-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_004-mesh-map-0">
+          <float_array id="Circle_004-mesh-map-0-array" count="216">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Circle_004-mesh-map-0-array" count="108" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Circle_004-mesh-vertices">
+          <input semantic="POSITION" source="#Circle_004-mesh-positions"/>
+        </vertices>
+        <triangles count="36">
+          <input semantic="VERTEX" source="#Circle_004-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Circle_004-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Circle_004-mesh-map-0" offset="2" set="0"/>
+          <p>9 0 0 1 1 1 0 2 2 9 0 3 2 3 4 1 1 5 9 0 6 3 4 7 2 3 8 9 0 9 4 5 10 3 4 11 9 0 12 5 6 13 4 5 14 9 0 15 6 7 16 5 6 17 9 0 18 7 7 19 6 7 20 9 0 21 8 7 22 7 7 23 19 8 24 11 9 25 10 9 26 19 8 27 12 9 28 11 9 29 19 8 30 13 10 31 12 9 32 19 8 33 14 11 34 13 10 35 19 8 36 15 12 37 14 11 38 19 8 39 16 13 40 15 12 41 19 8 42 17 14 43 16 13 44 19 8 45 18 15 46 17 14 47 4 16 48 15 17 49 3 18 50 5 19 51 14 20 52 4 16 53 6 21 54 13 22 55 5 19 56 7 23 57 12 24 58 6 21 59 8 25 60 11 26 61 7 23 62 1 27 63 18 28 64 0 29 65 2 30 66 17 31 67 1 27 68 3 18 69 16 32 70 2 30 71 9 33 72 10 33 73 8 33 74 18 34 75 9 34 76 0 34 77 4 16 78 14 20 79 15 17 80 5 19 81 13 22 82 14 20 83 6 21 84 12 24 85 13 22 86 7 23 87 11 26 88 12 24 89 8 25 90 10 35 91 11 26 92 1 27 93 17 31 94 18 28 95 2 30 96 16 32 97 17 31 98 3 18 99 15 17 100 16 32 101 9 33 102 19 33 103 10 33 104 18 34 105 19 34 106 9 34 107</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_animations>
+    <animation id="action_container-Circle_High__004" name="Circle(High).004">
+      <animation id="Circle_High__004_Action_003_transform" name="Circle(High).004">
+        <source id="Circle_High__004_Action_003_transform-input">
+          <float_array id="Circle_High__004_Action_003_transform-input-array" count="25">0.04166662 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667 0.8333333 0.875 0.9166667 0.9583333 1 1.041667</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__004_Action_003_transform-input-array" count="25" stride="1">
+              <param name="TIME" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__004_Action_003_transform-output">
+          <float_array id="Circle_High__004_Action_003_transform-output-array" count="400">5.52335e-7 1 1.62921e-7 -0.43 -1 5.52335e-7 9.40059e-14 -0.43 4.01912e-15 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.44 -1 4.33126e-7 7.05651e-14 -0.44 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.45 -1 4.33126e-7 7.05651e-14 -0.45 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.46 -1 4.33126e-7 7.05651e-14 -0.46 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.47 -1 4.33126e-7 7.05651e-14 -0.47 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.48 -1 4.33126e-7 7.05651e-14 -0.48 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.49 -1 4.33126e-7 7.05651e-14 -0.49 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.5 -1 4.33126e-7 7.05651e-14 -0.5 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.51 -1 4.33126e-7 7.05651e-14 -0.51 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.52 -1 4.33126e-7 7.05651e-14 -0.52 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.53 -1 4.33126e-7 7.05651e-14 -0.53 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.54 -1 4.33126e-7 7.05651e-14 -0.54 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.55 -1 4.33126e-7 7.05651e-14 -0.55 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.56 -1 4.33126e-7 7.05651e-14 -0.56 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.57 -1 4.33126e-7 7.05651e-14 -0.57 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.58 -1 4.33126e-7 7.05651e-14 -0.58 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.59 -1 4.33126e-7 7.05651e-14 -0.59 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.6 -1 4.33126e-7 7.05651e-14 -0.6 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.61 -1 4.33126e-7 7.05651e-14 -0.61 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.62 -1 4.33126e-7 7.05651e-14 -0.62 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.63 -1 4.33126e-7 7.05651e-14 -0.63 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.64 -1 4.33126e-7 7.05651e-14 -0.64 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.65 -1 4.33126e-7 7.05651e-14 -0.65 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.66 -1 4.33126e-7 7.05651e-14 -0.66 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 4.33126e-7 1 1.62921e-7 -0.67 -1 4.33126e-7 7.05651e-14 -0.67 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__004_Action_003_transform-output-array" count="25" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__004_Action_003_transform-interpolation">
+          <Name_array id="Circle_High__004_Action_003_transform-interpolation-array" count="25">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+          <technique_common>
+            <accessor source="#Circle_High__004_Action_003_transform-interpolation-array" count="25" stride="1">
+              <param name="INTERPOLATION" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <sampler id="Circle_High__004_Action_003_transform-sampler">
+          <input semantic="INPUT" source="#Circle_High__004_Action_003_transform-input"/>
+          <input semantic="OUTPUT" source="#Circle_High__004_Action_003_transform-output"/>
+          <input semantic="INTERPOLATION" source="#Circle_High__004_Action_003_transform-interpolation"/>
+        </sampler>
+        <channel source="#Circle_High__004_Action_003_transform-sampler" target="Circle_High__004/transform"/>
+      </animation>
+    </animation>
+    <animation id="action_container-Circle_High__003" name="Circle(High).003">
+      <animation id="Circle_High__003_Action_transform" name="Circle(High).003">
+        <source id="Circle_High__003_Action_transform-input">
+          <float_array id="Circle_High__003_Action_transform-input-array" count="25">0.04166662 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667 0.8333333 0.875 0.9166667 0.9583333 1 1.041667</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__003_Action_transform-input-array" count="25" stride="1">
+              <param name="TIME" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__003_Action_transform-output">
+          <float_array id="Circle_High__003_Action_transform-output-array" count="400">1 0 0 0.43 0 1 1.62921e-7 -0.43 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.44 0 1 1.62921e-7 -0.44 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.45 0 1 1.62921e-7 -0.45 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.46 0 1 1.62921e-7 -0.46 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.47 0 1 1.62921e-7 -0.47 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.48 0 1 1.62921e-7 -0.48 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.49 0 1 1.62921e-7 -0.49 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.4999999 0 1 1.62921e-7 -0.5 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.51 0 1 1.62921e-7 -0.51 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.52 0 1 1.62921e-7 -0.52 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.53 0 1 1.62921e-7 -0.53 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.54 0 1 1.62921e-7 -0.54 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.55 0 1 1.62921e-7 -0.55 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.56 0 1 1.62921e-7 -0.56 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.57 0 1 1.62921e-7 -0.57 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.58 0 1 1.62921e-7 -0.58 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.59 0 1 1.62921e-7 -0.59 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.6 0 1 1.62921e-7 -0.6 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.61 0 1 1.62921e-7 -0.61 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.62 0 1 1.62921e-7 -0.62 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.6300001 0 1 1.62921e-7 -0.63 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.64 0 1 1.62921e-7 -0.64 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.65 0 1 1.62921e-7 -0.65 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.6600001 0 1 1.62921e-7 -0.66 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 1 0 0 0.6700001 0 1 1.62921e-7 -0.67 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__003_Action_transform-output-array" count="25" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__003_Action_transform-interpolation">
+          <Name_array id="Circle_High__003_Action_transform-interpolation-array" count="25">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+          <technique_common>
+            <accessor source="#Circle_High__003_Action_transform-interpolation-array" count="25" stride="1">
+              <param name="INTERPOLATION" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <sampler id="Circle_High__003_Action_transform-sampler">
+          <input semantic="INPUT" source="#Circle_High__003_Action_transform-input"/>
+          <input semantic="OUTPUT" source="#Circle_High__003_Action_transform-output"/>
+          <input semantic="INTERPOLATION" source="#Circle_High__003_Action_transform-interpolation"/>
+        </sampler>
+        <channel source="#Circle_High__003_Action_transform-sampler" target="Circle_High__003/transform"/>
+      </animation>
+    </animation>
+    <animation id="action_container-Circle_High__001" name="Circle(High).001">
+      <animation id="Circle_High__001_Action_001_transform" name="Circle(High).001">
+        <source id="Circle_High__001_Action_001_transform-input">
+          <float_array id="Circle_High__001_Action_001_transform-input-array" count="25">0.04166662 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667 0.8333333 0.875 0.9166667 0.9583333 1 1.041667</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__001_Action_001_transform-input-array" count="25" stride="1">
+              <param name="TIME" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__001_Action_001_transform-output">
+          <float_array id="Circle_High__001_Action_001_transform-output-array" count="400">7.54979e-8 -1 -1.62921e-7 0.43 1 7.54979e-8 2.25157e-15 0.43 1.00486e-14 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.44 1 -4.37114e-8 -7.12149e-15 0.44 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.45 1 -4.37114e-8 -7.12149e-15 0.45 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.46 1 -4.37114e-8 -7.12149e-15 0.46 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.47 1 -4.37114e-8 -7.12149e-15 0.47 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.48 1 -4.37114e-8 -7.12149e-15 0.48 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.49 1 -4.37114e-8 -7.12149e-15 0.49 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.4999999 1 -4.37114e-8 -7.12149e-15 0.4999999 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.51 1 -4.37114e-8 -7.12149e-15 0.51 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.52 1 -4.37114e-8 -7.12149e-15 0.52 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.53 1 -4.37114e-8 -7.12149e-15 0.53 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.54 1 -4.37114e-8 -7.12149e-15 0.54 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.55 1 -4.37114e-8 -7.12149e-15 0.55 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.56 1 -4.37114e-8 -7.12149e-15 0.56 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.57 1 -4.37114e-8 -7.12149e-15 0.57 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.58 1 -4.37114e-8 -7.12149e-15 0.58 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.59 1 -4.37114e-8 -7.12149e-15 0.59 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.6 1 -4.37114e-8 -7.12149e-15 0.6 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.61 1 -4.37114e-8 -7.12149e-15 0.61 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.62 1 -4.37114e-8 -7.12149e-15 0.62 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.6300001 1 -4.37114e-8 -7.12149e-15 0.6300001 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.64 1 -4.37114e-8 -7.12149e-15 0.64 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.65 1 -4.37114e-8 -7.12149e-15 0.65 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.6600001 1 -4.37114e-8 -7.12149e-15 0.6600001 0 -1.62921e-7 1 9.43615e-8 0 0 0 1 -4.37114e-8 -1 -1.62921e-7 0.6700001 1 -4.37114e-8 -7.12149e-15 0.6700001 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__001_Action_001_transform-output-array" count="25" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__001_Action_001_transform-interpolation">
+          <Name_array id="Circle_High__001_Action_001_transform-interpolation-array" count="25">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+          <technique_common>
+            <accessor source="#Circle_High__001_Action_001_transform-interpolation-array" count="25" stride="1">
+              <param name="INTERPOLATION" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <sampler id="Circle_High__001_Action_001_transform-sampler">
+          <input semantic="INPUT" source="#Circle_High__001_Action_001_transform-input"/>
+          <input semantic="OUTPUT" source="#Circle_High__001_Action_001_transform-output"/>
+          <input semantic="INTERPOLATION" source="#Circle_High__001_Action_001_transform-interpolation"/>
+        </sampler>
+        <channel source="#Circle_High__001_Action_001_transform-sampler" target="Circle_High__001/transform"/>
+      </animation>
+    </animation>
+    <animation id="action_container-Circle_High__002" name="Circle(High).002">
+      <animation id="Circle_High__002_Action_002_transform" name="Circle(High).002">
+        <source id="Circle_High__002_Action_002_transform-input">
+          <float_array id="Circle_High__002_Action_002_transform-input-array" count="25">0.04166662 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667 0.8333333 0.875 0.9166667 0.9583333 1 1.041667</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__002_Action_002_transform-input-array" count="25" stride="1">
+              <param name="TIME" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__002_Action_002_transform-output">
+          <float_array id="Circle_High__002_Action_002_transform-output-array" count="400">-1 3.89414e-7 6.34436e-14 -0.43 -3.89414e-7 -1 -1.62921e-7 0.43 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.44 -3.89414e-7 -1 -1.62921e-7 0.44 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.45 -3.89414e-7 -1 -1.62921e-7 0.45 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.46 -3.89414e-7 -1 -1.62921e-7 0.46 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.47 -3.89414e-7 -1 -1.62921e-7 0.47 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.48 -3.89414e-7 -1 -1.62921e-7 0.48 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.49 -3.89414e-7 -1 -1.62921e-7 0.49 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.5 -3.89414e-7 -1 -1.62921e-7 0.4999999 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.51 -3.89414e-7 -1 -1.62921e-7 0.51 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.52 -3.89414e-7 -1 -1.62921e-7 0.52 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.53 -3.89414e-7 -1 -1.62921e-7 0.53 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.54 -3.89414e-7 -1 -1.62921e-7 0.54 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.55 -3.89414e-7 -1 -1.62921e-7 0.55 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.56 -3.89414e-7 -1 -1.62921e-7 0.56 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.57 -3.89414e-7 -1 -1.62921e-7 0.57 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.58 -3.89414e-7 -1 -1.62921e-7 0.58 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.59 -3.89414e-7 -1 -1.62921e-7 0.59 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.6 -3.89414e-7 -1 -1.62921e-7 0.6 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.61 -3.89414e-7 -1 -1.62921e-7 0.61 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.62 -3.89414e-7 -1 -1.62921e-7 0.62 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.63 -3.89414e-7 -1 -1.62921e-7 0.6300001 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.64 -3.89414e-7 -1 -1.62921e-7 0.64 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.65 -3.89414e-7 -1 -1.62921e-7 0.65 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.66 -3.89414e-7 -1 -1.62921e-7 0.6600001 0 -1.62921e-7 1 0 0 0 0 1 -1 3.89414e-7 6.34436e-14 -0.67 -3.89414e-7 -1 -1.62921e-7 0.6700001 0 -1.62921e-7 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Circle_High__002_Action_002_transform-output-array" count="25" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle_High__002_Action_002_transform-interpolation">
+          <Name_array id="Circle_High__002_Action_002_transform-interpolation-array" count="25">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+          <technique_common>
+            <accessor source="#Circle_High__002_Action_002_transform-interpolation-array" count="25" stride="1">
+              <param name="INTERPOLATION" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <sampler id="Circle_High__002_Action_002_transform-sampler">
+          <input semantic="INPUT" source="#Circle_High__002_Action_002_transform-input"/>
+          <input semantic="OUTPUT" source="#Circle_High__002_Action_002_transform-output"/>
+          <input semantic="INTERPOLATION" source="#Circle_High__002_Action_002_transform-interpolation"/>
+        </sampler>
+        <channel source="#Circle_High__002_Action_002_transform-sampler" target="Circle_High__002/transform"/>
+      </animation>
+    </animation>
+  </library_animations>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Circle_High__004" name="Circle(High).004" type="NODE">
+        <matrix sid="transform">4.33126e-7 1 1.62921e-7 -0.67 -1 4.33126e-7 7.05651e-14 -0.67 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</matrix>
+        <instance_geometry url="#Circle_007-mesh" name="Circle(High).004"/>
+      </node>
+      <node id="Circle_High__002" name="Circle(High).002" type="NODE">
+        <matrix sid="transform">-1 3.89414e-7 6.34436e-14 -0.67 -3.89414e-7 -1 -1.62921e-7 0.6700001 0 -1.62921e-7 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Circle_006-mesh" name="Circle(High).002"/>
+      </node>
+      <node id="Circle_High__001" name="Circle(High).001" type="NODE">
+        <matrix sid="transform">-4.37114e-8 -1 -1.62921e-7 0.6700001 1 -4.37114e-8 -7.12149e-15 0.6700001 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</matrix>
+        <instance_geometry url="#Circle_005-mesh" name="Circle(High).001"/>
+      </node>
+      <node id="Circle_High__003" name="Circle(High).003" type="NODE">
+        <matrix sid="transform">1 0 0 0.6700001 0 1 1.62921e-7 -0.67 0 -1.62921e-7 1 9.43615e-8 0 0 0 1</matrix>
+        <instance_geometry url="#Circle_004-mesh" name="Circle(High).003"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
