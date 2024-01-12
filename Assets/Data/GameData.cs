@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 [CreateAssetMenu(fileName = "NewData", menuName = "New Data", order = 51)]
 public class GameData : ScriptableObject
 {

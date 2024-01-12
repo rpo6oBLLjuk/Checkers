@@ -6,12 +6,18 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private GameData gameData;
     [SerializeField] private Slider loading;
     [SerializeField] private GameObject MenuObj;
     [SerializeField] private TextMeshProUGUI volumeText;
 
     [SerializeField] private GameObject optionsObj;
+
+    [SerializeField] private AudioSource backgroundAudioPrefab, backgroundAudio;
+    [SerializeField] private Notice notice;
+
+    [Header("Data")]
+    [SerializeField] private GameData gameData;
+    [SerializeField] private NoticeData noticeData;
 
     private void Awake()
     {
@@ -28,6 +34,13 @@ public class Menu : MonoBehaviour
             option.rTransform.localScale = scale;
         }
         optionsObj.SetActive(false);
+        CrutchForMute();
+    }
+
+    private void Start()
+    {
+        NoticeData.NoticeType noticeType = noticeData.GetNotice("Options");
+        notice.CreateNotice(noticeType);
     }
     public void PlayButton()
     {
@@ -51,6 +64,9 @@ public class Menu : MonoBehaviour
     public void ChangeSliderValue(float value)
     {
         volumeText.text = "Volume: " + value;
+        float volume = value / 100;
+        backgroundAudio.volume = volume;
+        backgroundAudioPrefab.volume = volume;
     }
     public void OptionsButton()
     {
@@ -65,5 +81,11 @@ public class Menu : MonoBehaviour
         Vector3 scale = option.rTransform.localScale;
         scale = new Vector3(-scale.x, scale.y, scale.z);
         option.rTransform.localScale = scale;
+    }
+    public void CrutchForMute()
+    {
+        bool mark = gameData.GetOption("Music").value;
+        backgroundAudio.mute = mark;
+        backgroundAudioPrefab.mute = mark;
     }
 }

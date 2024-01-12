@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - shortName: Music
-    value: 0
+    value: 1
     rTransform: {fileID: 0}
   - shortName: AlwaysEat
     value: 0
@@ -29,8 +29,8 @@ MonoBehaviour:
   - shortName: Pause
     keyCode: 112
     buttonText: {fileID: 0}
-  deskColor: {r: 0, g: 0, b: 0, a: 0}
-  whiteFigureColor: {r: 0, g: 0, b: 0, a: 0}
-  blackFigureColor: {r: 0, g: 0, b: 0, a: 0}
+  deskColor: {r: 0, g: 0.96233463, b: 2.2216802, a: 0}
+  whiteFigureColor: {r: 2.9960785, g: 2.9960785, b: 2.9960785, a: 0.13333334}
+  blackFigureColor: {r: 0, g: 0.43519202, b: 1.4509804, a: 0.49803922}
   cameraSpeed: 1000000
   cameraSliderValue: 1001

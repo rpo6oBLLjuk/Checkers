@@ -59,6 +59,7 @@ public class GlobalManager : MonoBehaviour
 
     [Header("Data")]
     public GameData gameData;
+    public NoticeData noticeData;
 
     private bool isBinding;
     private string nameForBind;
@@ -193,6 +194,7 @@ public class GlobalManager : MonoBehaviour
             component.StopPos = component.StartPos = new Vector3Int(Mathf.RoundToInt(go.transform.position.x), 0, Mathf.RoundToInt(go.transform.position.z));
             Board[component.StopPos.x + 3, component.StopPos.z + 3] = go;
         }
+        Notice.This.CreateNotice(noticeData.GetNotice("Start"));
     }
 
     public void BindButton(string name)
