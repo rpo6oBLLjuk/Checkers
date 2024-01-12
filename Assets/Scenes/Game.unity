@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008352133, g: 0.011714864, b: 0.01909008, a: 1}
+  m_IndirectSpecularColor: {r: 0.008381704, g: 0.011763123, b: 0.019196654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e576c84826b0be8419d39e00f65c7012,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -231,6 +231,80 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2087989984}
   m_SourcePrefab: {fileID: 100100000, guid: e576c84826b0be8419d39e00f65c7012, type: 3}
+--- !u!1001 &30095003
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4797030255175147538, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_Name
+      value: buttonAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796713389952347984, guid: 4821d6d45cfa1614e80352e3821b4fea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4821d6d45cfa1614e80352e3821b4fea, type: 3}
+--- !u!82 &30095004 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5658724113579175659, guid: 4821d6d45cfa1614e80352e3821b4fea,
+    type: 3}
+  m_PrefabInstance: {fileID: 30095003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39498259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4285,6 +4359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c88416686b5834a8f98293ff797745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 1548701791}
+  - {fileID: 30095004}
   gameData: {fileID: 11400000, guid: 5528bbd9b0c0a66458f0cf595baff19a, type: 2}
   deltaTimeSlider: {fileID: 1981381813}
   pauseMenu: {fileID: 1003458264}
@@ -8528,6 +8605,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!82 &1548701791 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4630343731006023941, guid: c7a177a87ea08d64b92d201434dcd537,
+    type: 3}
+  m_PrefabInstance: {fileID: 7986179733762118109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558775457
 GameObject:
   m_ObjectHideFlags: 0
@@ -12201,3 +12284,4 @@ SceneRoots:
   - {fileID: 173394160}
   - {fileID: 1459286492}
   - {fileID: 19653802}
+  - {fileID: 30095003}

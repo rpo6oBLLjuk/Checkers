@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - shortName: Music
-    value: 1
+    value: 0
     rTransform: {fileID: 0}
   - shortName: AlwaysEat
     value: 0
     rTransform: {fileID: 0}
   - shortName: ContinueCrownEat
-    value: 0
+    value: 1
     rTransform: {fileID: 0}
   buttons:
   - shortName: CameraDefault
@@ -34,3 +34,4 @@ MonoBehaviour:
   blackFigureColor: {r: 0, g: 0.43519202, b: 1.4509804, a: 0.49803922}
   cameraSpeed: 1000000
   cameraSliderValue: 1001
+  soundVolume: 0.5

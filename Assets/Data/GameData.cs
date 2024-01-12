@@ -26,13 +26,17 @@ public class GameData : ScriptableObject
 
     public NewButton[] buttons;
 
+    [Header("Colors")]
     public Color deskColor;
     public Color whiteFigureColor;
     public Color blackFigureColor;
 
+    [Header("Camera Options")]
     public int cameraSpeed;
     public int cameraSliderValue;
 
+    [Space]
+    [Range(0, 1)] public float soundVolume;
     public void ChangeKeys(string name, KeyCode key)
     {
         Debug.Log("Вхождение совершено");

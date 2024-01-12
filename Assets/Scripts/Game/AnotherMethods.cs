@@ -7,14 +7,15 @@ using UnityEngine.UI;
 
 public class AnotherMethods : MonoBehaviour
 {
+    [SerializeField] private AudioSource[] sounds;
     [SerializeField] private GameData gameData;
     [SerializeField] private Slider deltaTimeSlider;
     [SerializeField] private GameObject pauseMenu;
 
     private void Awake()
     {
-        //for data
-        pauseMenu.SetActive(true);        
+        //for fill data
+        pauseMenu.SetActive(true);
         for (int i = 0; i < gameData.buttons.Length; i++)
         {
             GameData.NewButton button = gameData.buttons[i];
@@ -22,6 +23,13 @@ public class AnotherMethods : MonoBehaviour
             button.buttonText.text = button.keyCode.ToString();
         }
         pauseMenu.SetActive(false);
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (i == 0)
+                sounds[i].volume = gameData.soundVolume / 2;
+            else
+                sounds[i].volume = gameData.soundVolume;
+        }
     }
     private void Update()
     {
