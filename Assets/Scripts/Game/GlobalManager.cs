@@ -33,7 +33,7 @@ public class GlobalManager : MonoBehaviour
     [Header("Support Objects & Components")]
     public GameObject CameraMain;
     public GameObject RayObj;
-
+    [SerializeField] private GameObject objForDead;
     [SerializeField] private GameObject vignette;
 
     public GameObject[,] Board = new GameObject[13, 13];
@@ -91,8 +91,11 @@ public class GlobalManager : MonoBehaviour
             NowColor.text = "Black";
         CheckPossible.Invoke(PlayerColor);
     }
-    public void EatFigure(int color)
+    public void EatFigure(int color, Vector3Int position)
     {
+        GameObject dead = Instantiate(objForDead, position, Quaternion.identity);
+        RuntimeAnimatorController controller = dead.GetComponent<Animator>().runtimeAnimatorController;
+        Destroy(dead, controller.animationClips[0].length);
         if (color == 1) //съедение белой фигуры
         {
             whiteText.text = "White: " + (whiteCount -= 1).ToString();
@@ -147,7 +150,7 @@ public class GlobalManager : MonoBehaviour
         AnotherMethods.Restart();
     }
 
-    public IEnumerator StartGame()
+    private IEnumerator StartGame()
     {
         bool TF = true;
         float save = Time.deltaTime * speedVignette / 20;

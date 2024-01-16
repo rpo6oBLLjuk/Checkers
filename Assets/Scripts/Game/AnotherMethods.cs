@@ -51,4 +51,12 @@ public class AnotherMethods : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void ButtonClickAudio()
+    {
+        sounds[1].PlayOneShot(sounds[1].clip);
+    }
+    public void OpenLink(string link)
+    {
+        Application.OpenURL(link);
+    }
 }

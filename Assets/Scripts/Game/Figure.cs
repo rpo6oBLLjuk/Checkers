@@ -160,9 +160,10 @@ public class Figure : MonoBehaviour
                         if (IsEat)
                         {
                             var eatedComponent = eated.GetComponent<Figure>();
+                            Vector3Int _position = eatedComponent.StopPos;
                             GlobalManager.This.Board[eatedComponent.StopPos.x + 3, eatedComponent.StopPos.z + 3] = null;
                             DestroyImmediate(eated);
-                            GlobalManager.This.EatFigure(figureColor * -1);
+                            GlobalManager.This.EatFigure(figureColor * -1, _position);
                             if (!PossibleToEat(StopPos, false))
                             {
                                 GlobalManager.This.ChangeColor();

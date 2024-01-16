@@ -39,9 +39,9 @@ public class Menu : MonoBehaviour
         Slider _volumeSlider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
         _volumeSlider.value = (gameData.soundVolume) * 100;
         ChangeSliderValue(gameData.soundVolume * 100);
+        optionsObj.SetActive(false);
         foreach (AudioSource audioSourse in sounds)
             audioSourse.volume = 0;
-        optionsObj.SetActive(false);
         CrutchForMute();
     }
 
@@ -143,11 +143,11 @@ public class Menu : MonoBehaviour
             for (int i = 0; i < sounds.Length; i++)
             {
                 if (i == 0)
-                    sounds[i].volume += Time.unscaledDeltaTime * direction / 2;
+                    sounds[i].volume += Time.deltaTime * direction / 2;
                 else
-                    sounds[i].volume += Time.unscaledDeltaTime * direction;
+                    sounds[i].volume += Time.deltaTime * direction;
             }
-            count += Time.unscaledDeltaTime;
+            count += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         if (mark)
